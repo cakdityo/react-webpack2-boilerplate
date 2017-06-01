@@ -30,7 +30,9 @@ module.exports = Merge(CommonConfig, {
     devServer: {
         hot: true,
         contentBase: path.join(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: '/',
+        port: 3000,
+        historyApiFallback: true
     },
 
     plugins: [

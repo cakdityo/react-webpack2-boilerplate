@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import moment from 'moment';
 import '../styles/main.css';
 
-export default class App extends Component {
+import About from './About';
+import Navbar from './Navbar';
+import Page1 from './Page1';
+import Page2 from './Page2';
 
-    handleClickTes() {
-        alert('ancamania!');
-    }
+const App = (props) => (
+    <Router>
+        <div>
+            <Switch>
+                
+                <Route path="/about" component={ About } />
+                <Route path="/" children={ () => (
+                    <div>
+                        <h1>Main Page</h1>
+                        <Navbar />
+                        <hr />
+                        <Route path="/page1" component={ Page1 } />
+                        <Route path="/page2" component={ Page2 } />
+                    </div>
+                ) } />
 
-    render() {
-        return (
-            <div>
-                <h2>Mantul Bro!</h2>
-                <h3>Haha</h3>
-                <button onClick={ this.handleClickTes }>
-                    Tes
-                </button>
-            </div>
-        );
-    }
-}
+            </Switch>
+
+        </div>
+    </Router>
+);
+
+export default App;
 
