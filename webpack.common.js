@@ -28,6 +28,34 @@ module.exports = {
                 use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     use: 'css-loader'
                 }))
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        query: {
+                            mozjpeg: {
+                                progressive: true,
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            optipng: {
+                                optimizationLevel: 7,
+                            },
+                            pngquant: {
+                                quality: '75-90',
+                                speed: 3,
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: 'file-loader'
             }
         ]
     },

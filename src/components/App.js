@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import moment from 'moment';
-import '../styles/main.css';
 
 import About from './About';
 import Navbar from './Navbar';
 import Page1 from './Page1';
 import Page2 from './Page2';
+
+import '../styles/main.css';
 
 const App = (props) => (
     <Router>
